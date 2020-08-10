@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.waiamu.open</groupId>
-	<artifactId>spring-echo-example</artifactId>
+	<artifactId>spring-boot-echo-service</artifactId>
 	<version>1.0.0</version>
 
-	<name>spring-echo-example</name>
+	<name>spring-boot-echo-service</name>
 	<description>Spring Boot Echo Example</description>
 	<url>https://github.com/raonigabriel/spring-echo-example/README.md</url>
 

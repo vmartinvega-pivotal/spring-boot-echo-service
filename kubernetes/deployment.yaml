@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-echo-service
+  labels:
+    app: spring-boot-echo-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-echo-service
+  template:
+    metadata:
+      labels:
+        app: spring-boot-echo-service
+    spec:
+      containers:
+        - name: spring-boot
+          image: vmartinvega/spring-boot-echo-service
+          resources:
+            limits:
+              memory: 500Mi
+            requests:
+              cpu: 200m
+              memory: 500Mi
+          ports:
+            - name: http-port
+              containerPort: 8080
+          volumeMounts:
+            - name: projects
+              mountPath: /hosthome/vicente/Projects
+      volumes:
+        - name: projects
+          hostPath:
+            path: /hosthome/vicente/Projects
+            type: Directory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-echo-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: spring-boot-echo-service
