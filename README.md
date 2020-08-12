@@ -15,5 +15,5 @@ mvn clean install
 ```
 * Run
 ```
-java -jar -Dserver.port=8083 target/spring-echo-example-1.0.0.jar
+java -jar -Dserver.port=8083 target/spring-boot-echo-service-1.0.0.jar
 ```
